@@ -122,23 +122,26 @@ function App() {
         {/* Portrait */}
         <div 
           ref={portraitRef}
-          className="absolute inset-0 flex items-center justify-center z-10 transition-transform duration-100 ease-out" 
+          className="absolute inset-0 flex items-center justify-center z-10 transition-transform duration-100 ease-out transform-gpu" 
           style={{ top: '-10%' }}
         >
           <div className="relative"> 
             <div 
-              className="w-96 h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] overflow-hidden opacity-0 animate-fade-in-delayed"
+              className="w-96 h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] overflow-hidden opacity-0 animate-fade-in-delayed transform-gpu"
               style={{ 
                 width: '800px',
                 height: '800px', 
                 animationDelay: '0.3s', 
-                animationFillMode: 'forwards' 
+                animationFillMode: 'forwards',
+                transform: 'translateZ(50px) rotateY(-5deg)',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.4)'
               }}
             > 
               <img 
                 src="/public/me.png"
                 alt="Portrait"
-                className="w-full h-full object-cover grayscale contrast-110 brightness-90"
+                className="w-full h-full object-cover grayscale contrast-110 brightness-90 transform-gpu"
+                style={{ transform: 'scale(1.05)' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-transparent" />
             </div> 
@@ -148,14 +151,16 @@ function App() {
         {/* Background Text - Aamir Naqvi at Bottom */}
         <div 
           ref={backgroundTextRef}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-100 ease-out"
+          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-100 ease-out transform-gpu"
           style={{ zIndex: 1, top: '65%' }}
         >
           <div 
-            className="text-[4rem] md:text-[10rem] lg:text-[15rem] font-bosenAlt text-black/30 select-none leading-none opacity-0 animate-fade-in-delayed"
+            className="text-[4rem] md:text-[10rem] lg:text-[15rem] font-bosenAlt text-black/30 select-none leading-none opacity-0 animate-fade-in-delayed transform-gpu"
             style={{
               animationDelay: '0.1s',  
-              animationFillMode: 'forwards' 
+              animationFillMode: 'forwards',
+              transform: 'translateZ(10px)',
+              textShadow: '0 10px 20px rgba(0,0,0,0.2)'
             }}
           >
             AAMIR NAQVI
@@ -165,25 +170,40 @@ function App() {
         {/* Main Typography */}
         <div 
           ref={mainTextRef}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-100 ease-out"
+          className="absolute inset-0 flex items-center justify-center transform-gpu"
           style={{ top: '60%' }}
         >
           <div className="text-center z-10 px-6">
             <div 
-              className="text-2xl md:text-4xl lg:text-5xl font-bosenAlt tracking-tight text-white/80 leading-tight opacity-0 animate-fade-in-delayed"
-              style={{ animationDelay: '0.8s', animationFillMode: 'forwards'  }}
+              className="text-2xl md:text-4xl lg:text-5xl font-bosenAlt tracking-tight text-white/80 leading-tight opacity-0 animate-fade-in-delayed transform-gpu"
+              style={{ 
+                animationDelay: '0.8s', 
+                animationFillMode: 'forwards',
+                transform: 'translateZ(40px)',
+                textShadow: '0 15px 30px rgba(0,0,0,0.5)'
+              }}
             >
               I EDIT
             </div>
             <div 
-              className="text-2xl md:text-3xl lg:text-4xl font-bosenAlt tracking-tight text-white/80 leading-tight mt-2 opacity-0 animate-fade-in-delayed"
-              style={{ animationDelay: '1.1s', animationFillMode: 'forwards' }}
+              className="text-2xl md:text-3xl lg:text-4xl font-bosenAlt tracking-tight text-white/80 leading-tight mt-2 opacity-0 animate-fade-in-delayed transform-gpu"
+              style={{ 
+                animationDelay: '1.1s', 
+                animationFillMode: 'forwards',
+                transform: 'translateZ(35px)',
+                textShadow: '0 15px 30px rgba(0,0,0,0.5)'
+              }}
             >
               VISUALS THAT
             </div>
             <div 
-              className="text-2xl md:text-4xl lg:text-5xl font-bosenAlt tracking-tight text-white leading-tight mt-2 opacity-0 animate-fade-in-delayed"
-              style={{ animationDelay: '1.4s', animationFillMode: 'forwards' }}
+              className="text-2xl md:text-4xl lg:text-5xl font-bosenAlt tracking-tight text-white leading-tight mt-2 opacity-0 animate-fade-in-delayed transform-gpu"
+              style={{ 
+                animationDelay: '1.4s', 
+                animationFillMode: 'forwards',
+                transform: 'translateZ(40px)',
+                textShadow: '0 15px 30px rgba(0,0,0,0.5)'
+              }}
             >
               BUILD BRANDS
             </div>
@@ -200,12 +220,18 @@ function App() {
         {/* Bottom Triangle Shape */}
         <div 
           ref={triangleRef}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in-delayed z-30"
-          style={{ animationDelay: '3.5s', animationFillMode: 'forwards' }}
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in-delayed z-30 transform-gpu"
+          style={{ 
+            animationDelay: '3.5s', 
+            animationFillMode: 'forwards',
+            transform: 'translateX(-50%) translateZ(60px)',
+            filter: 'drop-shadow(0 10px 20px rgba(34, 211, 238, 0.3))'
+          }}
         >
           <div className="flex flex-col items-center">
             <div 
-              className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[20px] border-l-transparent border-r-transparent border-t-cyan-400 animate-bounce-triangle"
+              className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[20px] border-l-transparent border-r-transparent border-t-cyan-400 animate-bounce-triangle transform-gpu"
+              style={{ transform: 'translateZ(10px)' }}
             />
           </div>
         </div>
