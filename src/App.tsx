@@ -209,42 +209,5 @@ function App() {
         </div>
       </div>
 
-      {/* New Section that enters from bottom */}
-      <div 
-        ref={newSectionRef}
-        className="relative z-20 bg-white min-h-screen"
-        style={{ transform: 'translateY(100vh)' }}
-      >
-        <div className="container mx-auto px-6 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bosenAlt text-gray-900 mb-8 opacity-0 animate-fade-in-delayed">
-              PORTFOLIO
-            </h2>
-            <p className="text-xl text-gray-600 leading-relaxed mb-12 opacity-0 animate-fade-in-delayed" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-              Crafting visual narratives that resonate with audiences and elevate brand experiences through innovative design and storytelling.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-              {[1, 2, 3, 4, 5, 6].map((item, index) => (
-                <div 
-                  key={item}
-                  className="bg-gray-100 aspect-square rounded-lg opacity-0 animate-fade-in-delayed hover:scale-105 transition-transform duration-300"
-                  style={{ 
-                    animationDelay: `${0.6 + index * 0.1}s`, 
-                    animationFillMode: 'forwards' 
-                  }}
-                >
-                  <div className="w-full h-full flex items-center justify-center text-gray-400 font-bosenAlt text-2xl">
-                    PROJECT {item}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+ 
 export default App;
