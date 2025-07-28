@@ -66,20 +66,24 @@ function App() {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
 
+          // AAMIR NAQVI text moves up with scroll (goes up with new section)
           if (backgroundTextRef.current) {
             backgroundTextRef.current.style.transform = `translateY(-${scrollY * 0.8}px)`;
           }
 
+          // Portrait, main text, and triangle move down with 0.3s delay
+          const delayedScrollY = Math.max(0, scrollY - (scrollY * 0.3));
+          
           if (portraitRef.current) {
-            portraitRef.current.style.transform = `translateY(${scrollY * 0.3}px)`;
+            portraitRef.current.style.transform = `translate(-50%, calc(-10% + ${delayedScrollY * 0.5}px))`;
           }
 
           if (mainTextRef.current) {
-            mainTextRef.current.style.transform = `translateY(-${scrollY * 0.5}px)`;
+            mainTextRef.current.style.transform = `translate(-50%, calc(-50% + ${delayedScrollY * 0.6}px))`;
           }
 
           if (triangleRef.current) {
-            triangleRef.current.style.transform = `translate(-50%, ${scrollY * 0.4}px)`; 
+            triangleRef.current.style.transform = `translate(-50%, calc(0px + ${delayedScrollY * 0.7}px))`;
           }
 
           if (newSectionRef.current) {
@@ -137,7 +141,7 @@ function App() {
         {/* Background Text */}
         <div
           ref={backgroundTextRef}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-100 ease-out"
+          className="fixed inset-0 flex items-center justify-center pointer-events-none transition-transform duration-100 ease-out"
           style={{ zIndex: 1, top: '65%' }}
         >
           <div
