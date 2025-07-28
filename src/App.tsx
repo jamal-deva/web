@@ -99,14 +99,13 @@ function App() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Hero Section */}
-      <div ref={heroRef} className="relative min-h-screen w-full bg-transparent z-10">
+      <div ref={heroRef} className="relative min-h-screen w-full bg-transparent z-10 overflow-hidden">
     <div 
   className="absolute inset-0 bg-cover bg-center opacity-100"
   style={{
     backgroundImage: `url('/public/bg.png')`,
-    backgroundAttachment: 'fixed'
   }}
 />
 {/* Portrait */}
@@ -196,7 +195,7 @@ style={{ animationDelay: '3.5s', animationFillMode: 'forwards' }}
       {/* Portfolio Section */}
       <div
         ref={newSectionRef}
-        className="relative z-40 bg-white min-h-screen"
+        className="relative z-40 bg-white min-h-screen w-full"
         style={{ transform: 'translateY(100vh)' }}
       >
         <div className="container mx-auto px-6 py-20">
