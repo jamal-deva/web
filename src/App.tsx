@@ -107,7 +107,7 @@ function App() {
     <div className="relative">
       {/* Main Hero Section */}
       <div 
-        ref={heroRef}
+        className="relative min-h-screen w-full bg-white transition-transform duration-100 ease-out z-30"
         className="relative min-h-screen w-full overflow-hidden bg-transparent"
       >
         {/* External Background Image */} 
@@ -191,9 +191,11 @@ function App() {
         </div>
 
         {/* Floating Testimonial Badges */}
-        {testimonialBadges.map((badge, index) => (
-          <TestimonialBadge key={index} badge={badge} />
-        ))}
+        <div className="fixed inset-0 z-20 pointer-events-none">
+          {testimonialBadges.map((badge, index) => (
+            <TestimonialBadge key={index} badge={badge} />
+          ))}
+        </div>
 
         {/* Bottom Triangle Shape */}
         <div 
