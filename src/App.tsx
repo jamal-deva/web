@@ -71,25 +71,26 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const delayedScrollY = scrollY * 0.7; // 0.3s delay effect
       
-      // Background text (Aamir Naqvi) moves up with scroll as new section comes up
+      // Background text (Aamir Naqvi) moves up with new section
       if (backgroundTextRef.current) {
-        backgroundTextRef.current.style.transform = `translateY(-${scrollY * 0.8}px)`;
+        backgroundTextRef.current.style.transform = `translateY(-${scrollY * 0.5}px)`;
       }
       
-      // Portrait moves down slowly (opposite direction to new section)
+      // Portrait moves down with delay
       if (portraitRef.current) {
-        portraitRef.current.style.transform = `translateY(${scrollY * 0.3}px)`;
+        portraitRef.current.style.transform = `translateY(${delayedScrollY * 0.4}px)`;
       }
       
-      // Main text (I EDIT VISUALS...) moves up with scroll
+      // Main text moves down with delay
       if (mainTextRef.current) {
-        mainTextRef.current.style.transform = `translateY(-${scrollY * 0.5}px)`;
+        mainTextRef.current.style.transform = `translateY(${delayedScrollY * 0.4}px)`;
       }
       
-      // Triangle moves down with scroll
+      // Triangle moves down with delay
       if (triangleRef.current) {
-        triangleRef.current.style.transform = `translate(-50%, ${scrollY * 0.4}px)`;
+        triangleRef.current.style.transform = `translate(-50%, ${delayedScrollY * 0.4}px)`;
       }
       
       // New section comes up from bottom
